@@ -42,7 +42,12 @@ export const DemoIcon: Demo = {
     >
       {Object.keys(iconRegistry).map((icon) => (
         <View key={icon} style={$iconTile}>
-          <Icon icon={icon as IconTypes} color={colors.tint} size={35} />
+          <Icon
+            icon={icon as IconTypes}
+            color={colors.tint}
+            size={35}
+            onPress={() => console.tron.log(icon)}
+          />
 
           <Text size="xs" style={$iconTileLabel}>
             {icon}

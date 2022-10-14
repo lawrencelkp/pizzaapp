@@ -47,6 +47,8 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
 
     // We'll mock this with a fake token.
     setAuthToken(String(Date.now()))
+
+    console.tron.log("Hello Login!")
   }
 
   const PasswordRightAccessory = useMemo(
