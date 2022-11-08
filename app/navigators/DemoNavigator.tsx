@@ -5,7 +5,14 @@ import { TextStyle, ViewStyle } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { Icon } from "../components"
 import { translate } from "../i18n"
-import { DemoCommunityScreen, DemoShowroomScreen, DemoDebugScreen, HomeScreen } from "../screens"
+import {
+  DemoCommunityScreen,
+  DemoShowroomScreen,
+  DemoDebugScreen,
+  HomeScreen,
+  FormAScreen,
+  FormBScreen,
+} from "../screens"
 import { DemoPodcastListScreen } from "../screens/DemoPodcastListScreen"
 import { colors, spacing, typography } from "../theme"
 import { AppStackParamList, AppStackScreenProps } from "./AppNavigator"
@@ -16,6 +23,8 @@ export type DemoTabParamList = {
   DemoDebug: undefined
   Home: undefined
   DemoPodcastList: undefined
+  FormA: undefined
+  FormB: undefined
 }
 
 /**
@@ -64,19 +73,19 @@ export function DemoNavigator() {
       />
 
       <Tab.Screen
-        name="DemoPodcastList"
-        component={DemoPodcastListScreen}
+        name="FormA"
+        component={FormAScreen}
         options={{
-          tabBarLabel: translate("demoNavigator.podcastListTab"),
+          tabBarLabel: "A",
           tabBarIcon: ({ focused }) => <Icon icon="podcast" color={focused && colors.tint} />,
         }}
       />
 
       <Tab.Screen
-        name="DemoDebug"
-        component={DemoDebugScreen}
+        name="FormB"
+        component={FormBScreen}
         options={{
-          tabBarLabel: translate("demoNavigator.debugTab"),
+          tabBarLabel: "B",
           tabBarIcon: ({ focused }) => <Icon icon="debug" color={focused && colors.tint} />,
         }}
       />
@@ -85,9 +94,9 @@ export function DemoNavigator() {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarLabel: "Ladybug",
+          tabBarLabel: "calendar",
           tabBarIcon: ({ focused }) => (
-            <Icon icon="ladybug" color={focused ? colors.tint : colors.palette.neutral900} />
+            <Icon icon="calendar" color={focused ? colors.tint : colors.palette.neutral900} />
           ),
         }}
       />

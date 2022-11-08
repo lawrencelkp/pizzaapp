@@ -372,6 +372,17 @@ export const DemoToggle: Demo = {
         />
       </View>
     </DemoUseCase>,
+
+    <DemoUseCase name="My new demo use case" description="This is the description">
+      <View>
+        <Text>Hello World</Text>
+        <Text>Hello World</Text>
+      </View>
+      <View>
+        <Text>Hello World</Text>
+        <Text>Hello World</Text>
+      </View>
+    </DemoUseCase>,
   ],
 }
 

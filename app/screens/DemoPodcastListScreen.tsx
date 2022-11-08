@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import React, { FC, useEffect, useMemo } from "react"
 import {
@@ -42,6 +43,9 @@ export const DemoPodcastListScreen: FC<DemoTabScreenProps<"DemoPodcastList">> = 
     const [refreshing, setRefreshing] = React.useState(false)
     const [isLoading, setIsLoading] = React.useState(false)
 
+    // Pull in navigation via hook
+    const navigation = useNavigation()
+
     // initially, kick off a background refresh without the refreshing UI
     useEffect(() => {
       ;(async function load() {
@@ -57,6 +61,10 @@ export const DemoPodcastListScreen: FC<DemoTabScreenProps<"DemoPodcastList">> = 
       await Promise.all([episodeStore.fetchEpisodes(), delay(750)])
       setRefreshing(false)
     }
+
+    useEffect(() => {
+      console.tron.log("load something in podcast page")
+    }, [navigation.isFocused])
 
     return (
       <Screen
